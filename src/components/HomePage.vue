@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  export default {
+export default {
   name: 'HomePage',
   props: {
   }
@@ -35,14 +35,14 @@
     top:0;
     bottom:0;
     left:0;
-    right:0;  
+    right:0;
     background-size: contain;
     position: absolute;
     background-repeat: no-repeat;
-  }  
+  }
 
   .button{
-    margin-top: 250px;  
+    margin-top: 250px;
     padding: 20px 50px;
     background-color:white;
     color: black;
@@ -51,7 +51,7 @@
   .button:hover{
     background-color:orange;
   }
-  
+
   .hero-text{
     margin-top: 10%;
     color:white;
