@@ -20,7 +20,12 @@
       </ul>
     </div>
  
-    <button v-on:click="clicked">Next Question</button>
+    <div v-if="QuestionNumber != 5">
+      <button v-on:click="clicked">Next Question</button>
+    </div>
+    <div v-if="QuestionNumber == 5">
+          <button v-on:click="finalSubmission"> Submit Quiz </button>
+      </div>
 
   </div>
 </template>
@@ -33,9 +38,29 @@
         this.QuestionNumber = this.QuestionNumber + 1;
         this.selectedAnswers.push(this.selectedAnswer);
       },
-      lastQuestion(){
-        var finalAnswer = this.SelectedAnswers
-        this.QuestionNumber == 2;
+      finalSubmission:function(event){
+        var modeMap = {};
+        var maxChar = this.selectedAnswers[0], maxCount =1;
+        for( var i = 0 ;  i < this.selectedAnswers; i++){
+          var el = this.selectedAnswers[i];
+          if(modeMap[el] == null)
+            modeMap[el] = 1;
+          else{
+            modeMap[el]++;
+          }
+          if(modeMap[el] > maxCount){
+            maxChar = el;
+            maxCount = modeMap[el];
+          }
+        }
+        if (maxChar == "a")
+          alert('zombie')
+        if (maxChar == "b")
+          alert("Witch")
+        if(maxChar == "c")
+          alert("Frankenstien")
+        if(maxChar == "d")
+          alert("Dracula")
       }
     },
     data(){
@@ -43,7 +68,6 @@
         QuestionNumber: 1,
         selectedAnswer: "",
         selectedAnswers: [],
-        hideFinalSubmission: false,
         Questions:[
           {
             number:1,
@@ -51,7 +75,7 @@
             answers:[
               {
                   option: "a",
-                  answer: "red"
+                  answer: "grey"
                 },
                 {
                   option: "b",
