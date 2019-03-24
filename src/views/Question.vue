@@ -2,13 +2,16 @@
 
   <div class="question">
     <h1> Question Number {{QuestionNumber}} </h1>
-    <p> {{Questions[0].question}} </p>
+    <p>   {{Questions[QuestionNumber-1].question}} </p>
 
-    <li v-for="answer in answers">
-      <input type="checkbox">
-        {{answer.answer}}
-      </input>
-    </li>
+    <div class="answer-options">
+      <ul>
+        <li v-for="answer in answers">
+          <input type="checkbox" :id="answer.number" :value="answer.answer" >
+          <label :for="answer.number"> {{answer.answer}} </label>
+        </li>
+      </ul>
+    </div>
 
     <button v-on:click="clicked">Next Question</button>
 
@@ -40,10 +43,15 @@
               answer: "black"
             }
           ],
+          selectedAnswer: "",
           Questions:[
             {
               number:1,
               question: "What is your favorite color?"
+            },
+            {
+              number:2,
+              question: "What is your favorite time period?"
             }
           ]
         };
