@@ -15,7 +15,11 @@
        checked answer: {{selectedAnswer}} 
      </div>
     <button v-on:click="clicked">Submit answer / Next question</button>
-    <button v-if:lastQuestion v-on:click="SubmitQuiz"> Final Submission </button>
+
+    <div v-if:hideFinalSubmission>
+      <button v-on:click="SubmitQuiz"> Final Submission </button>
+    </div>
+
   </div>
 </template>
 
@@ -44,6 +48,7 @@
           ],
           selectedAnswer: "",
           selectedAnswers: [],
+          hideFinalSubmission: false,
           Questions:[
             {
               number:1,
@@ -64,7 +69,8 @@
           alert(this.selectedAnswers)
         },
         lastQuestion(){
-          this.QuestionNumber ==2;
+          var finalAnswer = this.SelectedAnswers
+          this.QuestionNumber == 2;
         }
         
   
