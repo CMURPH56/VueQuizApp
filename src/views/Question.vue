@@ -3,24 +3,22 @@
   <div class="question">
     <h1> Question Number {{QuestionNumber}} </h1>
     <p>   {{Questions[QuestionNumber-1].question}} </p>
-
     <div class="answer-options">
       <ul>
         <li v-for="answer in answers">
-          <input type="checkbox" :id="answer.number" :value="answer.answer" >
-          <label :for="answer.number"> {{answer.answer}} </label>
+          <input type="radio" :id="answer.number" :value="answer.number" v-model="selectedAnswer" >
+          <label for="answer.number"> {{answer.answer}} </label>
         </li>
       </ul>
     </div>
-
-    <button v-on:click="clicked">Next Question</button>
-
+    <div>
+       checked answer: {{selectedAnswer}} 
+     </div>
+    <button v-on:click="clicked">Submit answer</button>
   </div>
-
 </template>
 
 <script>
-
   export default {
     data(){
       return {
@@ -58,7 +56,19 @@
       },
       methods:{
         clicked:function(event){
-        this.QuestionNumber = this.QuestionNumber + 1;
+          if(this.selectedAnswer == "1"){
+            alert("Demon")
+          }
+          if(this.selectedAnswer == "2"){
+            alert("Sea Creature")
+          }
+          if(this.selectedAnswer == "3"){
+            alert("Frankenstien")
+          }
+
+          if(this.selectedAnswer == "4"){
+            alert("Dracula")
+          }
       },
 
     }
