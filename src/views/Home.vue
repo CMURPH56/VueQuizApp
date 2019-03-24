@@ -28,7 +28,6 @@
     width: 100%
   }
   .hero-image{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/horror-banner.png");
     display:block;
     height: 100%;
     width: 100%;
