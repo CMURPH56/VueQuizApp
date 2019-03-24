@@ -5,7 +5,7 @@
           <h1> Which Horror Villian Are YOu?</h1>
         </div>
         <div >
-          <form action= "/Question1" >
+          <form action= "/Question" >
             <input class="button" type="submit" value="Get Started" />
           </form>
         </div>
@@ -28,6 +28,7 @@
     width: 100%
   }
   .hero-image{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/horror-banner.png");
     display:block;
     height: 100%;
     width: 100%;

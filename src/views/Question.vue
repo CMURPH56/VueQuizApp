@@ -14,7 +14,7 @@
     <div>
        checked answer: {{selectedAnswer}} 
      </div>
-    <button v-on:click="clicked">Submit answer</button>
+    <button v-on:click="clicked">Submit answer / Next question</button>
   </div>
 </template>
 
@@ -42,6 +42,7 @@
             }
           ],
           selectedAnswer: "",
+          selectedAnswers: [],
           Questions:[
             {
               number:1,
@@ -49,28 +50,20 @@
             },
             {
               number:2,
-              question: "What is your favorite time period?"
+              question: "When is your favorite time period?"
             }
           ]
         };
       },
       methods:{
         clicked:function(event){
-          if(this.selectedAnswer == "1"){
-            alert("Demon")
-          }
-          if(this.selectedAnswer == "2"){
-            alert("Sea Creature")
-          }
-          if(this.selectedAnswer == "3"){
-            alert("Frankenstien")
-          }
-
-          if(this.selectedAnswer == "4"){
-            alert("Dracula")
-          }
-      },
-
+        
+          this.QuestionNumber = this.QuestionNumber + 1;
+          this.selectedAnswers.push(this.selectedAnswer);
+          alert(this.selectedAnswers)
+        },
+        
+  
     }
   }
 
