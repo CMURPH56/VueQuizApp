@@ -54,7 +54,7 @@
           }
         }
         if (maxChar == "a")
-          alert('zombie')
+          alert('Zombie')
         if (maxChar == "b")
           alert("Witch")
         if(maxChar == "c")
