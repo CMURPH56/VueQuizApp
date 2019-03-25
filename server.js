@@ -14,10 +14,9 @@ app.use(history({
 app.use(staticFileMiddleware)
 
 app.get('/', function (req, res) {
-  res.render(path.join(__dirname + '/dist/index.html'))
+  res.render(path.join(__dirname + '/dist'))
 })
 
 var port = process.env.PORT || 5000;
-server.listen(port, function() {
-    console.log("App is running on port " + port);
-});
+
+app.listen(port)
