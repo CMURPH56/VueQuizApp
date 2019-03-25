@@ -18,4 +18,6 @@ app.get('/', function (req, res) {
 })
 
 var port = process.env.PORT || 5000;
-app.listen(port);
+server.listen(port, function() {
+    console.log("App is running on port " + port);
+});
