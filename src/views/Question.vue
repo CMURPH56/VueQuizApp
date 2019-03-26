@@ -24,21 +24,23 @@
       <button v-on:click="clicked">Next Question</button>
     </div>
     <div v-if="QuestionNumber == 5">
-          <button v-on:click="finalSubmission"> Submit Quiz </button>
+          <form action= "/Results" >
+            <input v-on:click="finalSubmission" class="button" type="submit" value="Get Started" />
+          </form>
       </div>
 
   </div>
 </template>
 
 <script>
-
-  import Router from "../router"
+  import {store} from  '../store'
   export default {
-
+    store,
     methods:{
       clicked:function(event){
         this.QuestionNumber = this.QuestionNumber + 1;
         this.selectedAnswers.push(this.selectedAnswer);
+       
       },
       finalSubmission:function(event){
         var modeMap = {};
@@ -55,14 +57,18 @@
             maxCount = modeMap[el];
           }
         }
+        var monster = 'monster'
         if (maxChar == "a")
-          alert('Zombie')
+          monster = 'Zombie'
         if (maxChar == "b")
-          alert("Witch")
+          monster = "Witch"
         if(maxChar == "c")
-          alert("Frankenstien")
+          monster = "Frankenstien"
         if(maxChar == "d")
-          alert("Dracula")
+          monster = "Dracula"
+        
+        this.$store.commit('setAnswer', monster)
+        alert(this.$store.state.answer)
       }
     },
     data(){
