@@ -6,12 +6,13 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "start" : "node server.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "express": "^4.16.4",
     "vue": "^2.6.6",
-    "vue-router": "^3.0.1"
+    "vue-router": "^3.0.1",
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.5.0",
