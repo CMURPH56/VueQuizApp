@@ -5,7 +5,7 @@
           <h1> Which Horror Villian Are YOu?</h1>
         </div>
         <div >
-          <form action= "/Question1" >
+          <form action= "/Question" >
             <input class="button" type="submit" value="Get Started" />
           </form>
         </div>
