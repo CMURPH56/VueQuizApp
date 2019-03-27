@@ -3,6 +3,7 @@
     <div class="hero-image">
         <div class="hero-text">
           <h1> Which Horror Villian Are YOu?</h1>
+          <h1> {{ testData }}</h1>
         </div>
         <div >
           <form action= "/Question" >
@@ -14,10 +15,19 @@
 </template>
 
 <script>
+  import { db } from '../../firebaseConfig.js'
   export default {
-  name: 'HomePage',
-  props: {
-  }
+    name: 'HomePage',
+    data () {
+      return{
+        testData : ''
+      }
+    },
+    firestore () {
+      testData: db.collection('Questions')
+    },
+    props: {
+    }
 }
 </script>
 
