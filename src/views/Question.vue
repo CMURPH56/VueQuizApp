@@ -196,9 +196,9 @@
 
 
 <style>
-/*
+
   body{
-    background-color: black;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cat.jpg");
   }
   .header{
     background-color: black;
@@ -212,7 +212,7 @@
       font-size: 15px; 
     color: white;
   } 
-*/
+
   ul{
       list-style-type: none;
     }
