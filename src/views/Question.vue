@@ -23,7 +23,7 @@
     </div>
     <div v-if="QuestionNumber == 5">
           <form action= "/Results" >
-            <input v-on:click="finalSubmission" class="button" type="submit" value="Get Started" />
+            <input v-on:click="finalSubmission" type="submit" value="Submit Results" />
           </form>
       </div>
 
@@ -34,6 +34,12 @@
 
   body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cat.jpg");
+  }
+
+
+  .question-title{
+    color: orange;
+    font-size: 20px;
   }
 
   .header{
@@ -62,10 +68,7 @@
     bottom:0;
   }
   
-  .question-list input[type="radio"] {
-    opacity:0.011;
-    z-index:100;
-  }
+
   
   .question-list input[type="radio"]:checked ~ label {
       background-color: orange;
