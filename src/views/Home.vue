@@ -2,8 +2,12 @@
   <div class="homepage">
     <div class="hero-image">
         <div class="hero-text">
+<<<<<<< HEAD
           <h1> Which Horror Villian Are YOu?</h1>
           <h1> {{ testData }}</h1>
+=======
+          <h1> Welcome to Cam's Horror Quiz</h1>
+>>>>>>> d054912242cee58394b5d0cae2df1f008858d9d7
         </div>
         <div >
           <form action= "/Question" >
@@ -32,11 +36,12 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
   .hero{
     height: 100vh;
     width: 100%
   }
+<<<<<<< HEAD
   .hero-image{
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/horror-banner.png");
     display:block;
@@ -49,6 +54,11 @@
     background-size: contain;
     position: absolute;
     background-repeat: no-repeat;
+=======
+  body{
+
+    background-color:black;
+>>>>>>> d054912242cee58394b5d0cae2df1f008858d9d7
   }
 
   .button{

@@ -11,26 +11,84 @@
       {{Questions[QuestionNumber-1].question}} 
     </div>
 
-    <div class="answer-options">
-      <ul>
+      <ul class = "question-list">
         <li v-for="answer in Questions[QuestionNumber-1].answers">
-          <input type="radio" :id="answer.option" :value="answer.option" v-model="selectedAnswer" >
+          <input type="radio" :id="answer.option" :value="answer.option" v-model="selectedAnswer" checked>
           <label for="answer.option"> {{answer.answer}} </label>
         </li>
       </ul>
-    </div>
  
     <div v-if="QuestionNumber != 5">
       <button v-on:click="clicked">Next Question</button>
     </div>
     <div v-if="QuestionNumber == 5">
           <form action= "/Results" >
-            <input v-on:click="finalSubmission" class="button" type="submit" value="Get Started" />
+            <input v-on:click="finalSubmission" type="submit" value="Submit Results" />
           </form>
       </div>
 
   </div>
 </template>
+
+<style>
+
+  body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cat.jpg");
+  }
+
+
+  .question-title{
+    color: orange;
+    font-size: 20px;
+  }
+
+  .header{
+    background-color: black;
+    color: orange;
+  }
+
+  .question-list{
+    color:white;
+    list-style-type: none;
+    margin: 25px 0 0 0;
+    padding: 0;
+  }
+  .question-list li{
+    height: 40px;
+    margin: 0 5px 0 0;
+    position: relative;
+  }
+
+  .question-list label .question-list input{
+    display:block;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+  }
+  
+
+  
+  .question-list input[type="radio"]:checked ~ label {
+      background-color: orange;
+      color: black;
+  }
+
+.question-list label {
+    background: grey;
+    color: black;
+     padding:5px;
+     border:1px solid #CCC; 
+     cursor:pointer;
+    z-index:90;
+}
+
+.question-list label:hover {
+     background: white;
+}
+   
+</style>
 
 <script>
   import {store} from  '../store'
@@ -194,27 +252,3 @@
   }
 </script>
 
-
-<style>
-/*
-  body{
-    background-color: black;
-  }
-  .header{
-    background-color: black;
-    color: orange;
-  }
-  .question-title{
-    font-size: 20px;
-    color:orange;
-  }
-  .answer-options{
-      font-size: 15px; 
-    color: white;
-  } 
-*/
-  ul{
-      list-style-type: none;
-    }
-   
-</style>
