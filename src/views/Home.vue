@@ -2,7 +2,7 @@
   <div class="homepage">
     <div class="hero-image">
         <div class="hero-text">
-          <h1> Which Horror Villian Are YOu?</h1>
+          <h1> Welcome to Cam's Horror Quiz</h1>
         </div>
         <div >
           <form action= "/Question" >
@@ -22,24 +22,15 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
   .hero{
     height: 100vh;
     width: 100%
   }
-  .hero-image{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/horror-banner.png");
-    display:block;
-    height: 100%;
-    width: 100%;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;  
-    background-size: contain;
-    position: absolute;
-    background-repeat: no-repeat;
-  }  
+  body{
+
+    background-color:black;
+  }
 
   .button{
     margin-top: 250px;  
