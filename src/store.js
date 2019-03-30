@@ -1,7 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { vuexfireMutations } from 'vuexfire'
+import { vuexfireMutations, firebaseAction } from 'vuexfire'
 Vue.use(Vuex)
+
+//Firebase Configuration
+import {db} from '../firebaseConfig'
+var QuestionsRef = db.collection("Questions")
 
 export default new Vuex.Store({
   state: {
@@ -120,18 +124,19 @@ export default new Vuex.Store({
     ]
 
   },
+ // modules: { questionsTest },
   mutations: {
     setAnswer (state, input) {
       state.answer = input
     },
-    ...vuexfireMutations
+
   },
   actions: {
 
   },
   getters:{
     loadedQuestions(state){
-      return state.Questions;
+      return state.Questions
     }
   }
 })

@@ -1,16 +1,13 @@
 <template>
 
   <div class="question">
-    
     <!-- Header -->
-    <div class="header">  
+    <div class="header"> 
       <h1> Question Number {{QuestionNumber}} </h1>
     </div>
-
     <div class="question-title"> 
       {{Questions[QuestionNumber-1].question}} 
     </div>
-
       <ul class = "question-list">
         <li v-for="answer in Questions[QuestionNumber-1].answers">
           <input type="radio" :id="answer.option" :value="answer.option" v-model="selectedAnswer" checked>
@@ -35,8 +32,6 @@
   body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cat.jpg");
   }
-
-
   .question-title{
     color: orange;
     font-size: 20px;
@@ -93,19 +88,23 @@
 <script>
   import {store} from  '../store'
   import { isUndefined } from 'util';
+
   export default {
     computed:{
       Questions(){
-        console.log("test")
-        var test = this.$store.getters.loadedQuestions
-        console.log("tsets")
-        if(test !== isUndefined){
           return this.$store.getters.loadedQuestions
-        }else{
-          console.log("cam")
-          return ["cam"]
         }
-      }
+    },
+    created(){
+      db.collection('Questions').get().then((querySnapshot) =>{
+        this.loading= false
+        querySnapshot.forEach((doc) =>{
+          let data ={
+            'Number' : doc.data().Number
+          }
+          this.testData.push
+        })
+      })
     },
     
     methods:{

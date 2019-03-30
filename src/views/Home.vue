@@ -2,8 +2,6 @@
   <div class="homepage">
     <div class="hero-image">
         <div class="hero-text">
- 
-          <h1> {{ testData }} </h1>
           <h1> Welcome to Cam's Horror Quiz</h1>
         </div>
         <div >
@@ -16,21 +14,20 @@
 </template>
 
 <script>
-  import { db } from '../../firebaseConfig.js'
+  import {db} from '../../firebaseConfig'
   export default {
+
     name: 'HomePage',
     data () {
       return{
-        testData : "test"
+        testData : ["cam"]
       }
     },
-    firestore () {
-      console.log("test")
-      return{
-        testData: db.collection('Questions').orderBy('createdAt')
-      }
-    },
+
     props: {
+    },
+    created(){
+      console.log("test")
     }
 }
 </script>
