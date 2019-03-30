@@ -13,7 +13,7 @@ const config = {
 firebase.initializeApp(config)
 
 // firebase utils
-const db = firebase.firestore()
+export const db = firebase.firestore()
 
 // date issue fix according to firebase
 const settings = {
