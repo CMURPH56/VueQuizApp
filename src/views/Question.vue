@@ -140,13 +140,13 @@
         }
         var monster = 'monster'
         if (maxChar == "A")
-          monster = 'Zombie'
+          monster = 'Zombie \nPeople who get Zombie are trendy, popular, and hardworking'
         if (maxChar == "B")
-          monster = "Witch"
+          monster = "Witch \nPeople who get Witch are inventive, mysterious, and good with animals"
         if(maxChar == "C")
-          monster = "Frankenstien"
+          monster = "Frankenstien \nPeople who get Frankenstien are athletic, stubborn, and misunderstood"
         if(maxChar == "D")
-          monster = "Dracula"
+          monster = "Dracula \nPeople who get Dracula are intelligent, reserved, and will do anything to get ahead"
         
         this.$store.commit('setAnswer', monster)
         alert(this.$store.state.answer)
