@@ -2,16 +2,16 @@
 
   <div class="question">
     <!-- Header -->
-    <div class="header"> 
+    <div class=header>
       <h1> Question Number {{QuestionNumber}} </h1>
-    </div>
+   </div>
     <div class="question-title"> 
-      {{Questions[QuestionNumber-1].question}} 
+      {{testQuestions[QuestionNumber-1].Question}} 
     </div>
       <ul class = "question-list">
-        <li v-for="answer in Questions[QuestionNumber-1].answers">
+        <li v-for="answer in testQuestions[QuestionNumber-1].answers">
           <input type="radio" :id="answer.option" :value="answer.option" v-model="selectedAnswer" checked>
-          <label for="answer.option"> {{answer.answer}} </label>
+          <label for="answer.option"> {{answer.Answer}} </label>
         </li>
       </ul>
  
@@ -88,21 +88,29 @@
 <script>
   import {store} from  '../store'
   import { isUndefined } from 'util';
+  import {db} from '../../firebaseConfig'
 
   export default {
-    computed:{
-      Questions(){
-          return this.$store.getters.loadedQuestions
-        }
+    data(){
+      return {
+        QuestionNumber: 1,
+        selectedAnswer: "",
+        selectedAnswers: [],
+        testQuestions: []        
+      };
     },
     created(){
+      console.log("test")
       db.collection('Questions').get().then((querySnapshot) =>{
         this.loading= false
         querySnapshot.forEach((doc) =>{
           let data ={
-            'Number' : doc.data().Number
+            'Number' : doc.data().Number,
+            'Question': doc.data().Question,
+            'answers': doc.data().answers
           }
-          this.testData.push
+          
+          this.testQuestions.push(data)
         })
       })
     },
@@ -115,11 +123,13 @@
       },
       finalSubmission:function(event){
         var modeMap = {};
-        var maxChar = this.selectedAnswers[0], maxCount =1;
-        for( var i = 0 ;  i < this.selectedAnswers; i++){
+        var maxChar = this.selectedAnswers[0], maxCount = 1;
+   
+        for( var i = 0 ;  i < this.selectedAnswers.length ; i++){ 
           var el = this.selectedAnswers[i];
-          if(modeMap[el] == null)
+          if(modeMap[el] == null){
             modeMap[el] = 1;
+          }
           else{
             modeMap[el]++;
           }
@@ -129,28 +139,19 @@
           }
         }
         var monster = 'monster'
-        if (maxChar == "a")
+        if (maxChar == "A")
           monster = 'Zombie'
-        if (maxChar == "b")
+        if (maxChar == "B")
           monster = "Witch"
-        if(maxChar == "c")
+        if(maxChar == "C")
           monster = "Frankenstien"
-        if(maxChar == "d")
+        if(maxChar == "D")
           monster = "Dracula"
         
         this.$store.commit('setAnswer', monster)
         alert(this.$store.state.answer)
       }
     },
-    data(){
-      return {
-        QuestionNumber: 1,
-        selectedAnswer: "",
-        selectedAnswers: [],
-        //Questions: this.$store.state.Questions
-        
-      };
-    }
       
   }
 </script>
