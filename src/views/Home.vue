@@ -1,5 +1,7 @@
 <template>
+
   <div class="homepage">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Creepster">
     <div class="hero-image">
         <div class="hero-text">
           <h1> Welcome to Cam's Horror Quiz</h1>
@@ -35,13 +37,13 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
   .hero{
+   
     height: 100vh;
     width: 100%
   }
 
   
   body{
-
     background-color:black;
   }
 
@@ -57,8 +59,10 @@
   }
 
   .hero-text{
+    font-size: 24px;
+     font-family: 'Creepster', serif; 
     margin-top: 10%;
-    color:white;
+    color:green;
     text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
   }
 </style>

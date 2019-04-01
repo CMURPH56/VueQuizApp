@@ -109,7 +109,6 @@
             'Question': doc.data().Question,
             'answers': doc.data().answers
           }
-          
           this.testQuestions.push(data)
         })
       })
