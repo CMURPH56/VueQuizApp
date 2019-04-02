@@ -8,13 +8,14 @@
     <div class="question-title"> 
       {{testQuestions[QuestionNumber-1].Question}} 
     </div>
-      <ul class = "question-list">
-        <li v-for="answer in testQuestions[QuestionNumber-1].answers">
-          <input type="radio" :id="answer.option" :value="answer.option" v-model="selectedAnswer" checked>
-          <label for="answer.option"> {{answer.Answer}} </label>
-        </li>
-      </ul>
- 
+     <ul class="question-list">
+       <li>
+          <label v-for="answer in testQuestions[QuestionNumber-1].answers" v-bind:key="answer.option" class="question-list">
+           <input type="radio" value="answer.option" name="answer.Answer" v-model="selectedAnswer">
+           <span>   {{answer.Answer}} </span>
+           </label>
+           </li>
+  </ul>
     <div v-if="QuestionNumber != 5">
       <button v-on:click="clicked">Next Question</button>
     </div>
@@ -48,7 +49,7 @@
     margin: 25px 0 0 0;
     padding: 0;
   }
-  .question-list li{
+  .question-list label{
     height: 40px;
     margin: 0 5px 0 0;
     position: relative;
@@ -65,7 +66,7 @@
   
 
   
-  .question-list input[type="radio"]:checked ~ label {
+  .question-list input[type="radio"]:checked {
       background-color: orange;
       color: black;
   }
