@@ -8,14 +8,12 @@
     <div class="question-title"> 
       {{testQuestions[QuestionNumber-1].Question}} 
     </div>
-     <ul class="question-list">
-       <li>
-          <label v-for="answer in testQuestions[QuestionNumber-1].answers" v-bind:key="answer.option" class="question-list">
-           <input type="radio" value="answer.option" name="answer.Answer" v-model="selectedAnswer">
-           <span>   {{answer.Answer}} </span>
-           </label>
-           </li>
-  </ul>
+        <div class= "radio-buttons">
+          <label v-for="answer in testQuestions[QuestionNumber-1].answers" class="button-label"  >
+            <input type="radio" :value="answer.option" name="answer.Answer" v-model="selectedAnswer">
+            <span>   {{answer.Answer}} </span>
+          </label>
+        </div>
     <div v-if="QuestionNumber != 5">
       <button v-on:click="clicked">Next Question</button>
     </div>
@@ -33,6 +31,7 @@
   body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cat.jpg");
   }
+
   .question-title{
     color: orange;
     font-size: 20px;
@@ -42,46 +41,26 @@
     background-color: black;
     color: orange;
   }
-
-  .question-list{
-    color:white;
-    list-style-type: none;
-    margin: 25px 0 0 0;
-    padding: 0;
-  }
-  .question-list label{
-    height: 40px;
-    margin: 0 5px 0 0;
-    position: relative;
-  }
-
-  .question-list label .question-list input{
-    display:block;
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-  }
-  
-
-  
-  .question-list input[type="radio"]:checked {
-      background-color: orange;
-      color: black;
-  }
-
-.question-list label {
-    background: grey;
-    color: black;
-     padding:5px;
-     border:1px solid #CCC; 
-     cursor:pointer;
-    z-index:90;
+  .radio-buttons input[type="radio"] {
+    display:none; 
 }
 
-.question-list label:hover {
-     background: white;
+.radio-buttons label {
+    display:inline-block;
+    background-color:#ddd;
+    padding: 10px 20px;
+    font-family:Arial;
+    font-size:16px;
+    border: 2px solid #444;
+    border-radius: 4px;    
+}
+.radio-button input[type="radio"]:checked { 
+    color: brown;
+    background-color:#bfb;
+    border-color: #4c4;
+}
+.radio-button label:hover {
+  background-color: red;
 }
    
 </style>
