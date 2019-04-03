@@ -31,36 +31,32 @@
   body {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cat.jpg");
   }
-
   .question-title{
     color: orange;
     font-size: 20px;
   }
-
   .header{
     background-color: black;
     color: orange;
   }
   .radio-buttons input[type="radio"] {
     display:none; 
-}
-
-.radio-buttons label {
+  }
+  .radio-buttons label {
     display:inline-block;
     background-color:#ddd;
-    padding: 10px 20px;
+
     font-family:Arial;
     font-size:16px;
     border: 2px solid #444;
     border-radius: 4px;    
+  }
+  .radio-buttons [type="checkbox"] + span {
+    display:inline-block;
+    padding:1em;
 }
-.radio-button input[type="radio"]:checked { 
-    color: brown;
-    background-color:#bfb;
-    border-color: #4c4;
-}
-.radio-button label:hover {
-  background-color: red;
+ .radio-buttons :checked + span {
+    background-color:orange;
 }
    
 </style>
