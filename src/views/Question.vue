@@ -8,22 +8,21 @@
     <div class="question-title"> 
       {{testQuestions[QuestionNumber-1].Question}} 
     </div>
-      <ul class = "question-list">
-        <li v-for="answer in testQuestions[QuestionNumber-1].answers">
-          <input type="radio" :id="answer.option" :value="answer.option" v-model="selectedAnswer" checked>
-          <label for="answer.option"> {{answer.Answer}} </label>
-        </li>
-      </ul>
- 
-    <div v-if="QuestionNumber != 5">
+        <div class= "radio-buttons">
+          <label v-for="answer in testQuestions[QuestionNumber-1].answers" class="button-label"  >
+            <input type="radio" :value="answer.option" name="answer.Answer" v-model="selectedAnswer">
+            <span>   {{answer.Answer}} </span>
+          </label>
+       
+    <div v-if="QuestionNumber != 5" class="next-button">
       <button v-on:click="clicked">Next Question</button>
     </div>
-    <div v-if="QuestionNumber == 5">
+    <div v-if="QuestionNumber == 5" class= "submit-button">
           <form action= "/Results" >
             <input v-on:click="finalSubmission" type="submit" value="Submit Results" />
           </form>
       </div>
-
+ </div>
   </div>
 </template>
 
@@ -36,51 +35,39 @@
     color: orange;
     font-size: 20px;
   }
-
   .header{
     background-color: black;
     color: orange;
   }
-
-  .question-list{
-    color:white;
-    list-style-type: none;
-    margin: 25px 0 0 0;
-    padding: 0;
+  .radio-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
-  .question-list li{
-    height: 40px;
-    margin: 0 5px 0 0;
-    position: relative;
+  .radio-buttons input[type="radio"] {
+    display:none; 
   }
-
-  .question-list label .question-list input{
+  .radio-buttons label {
     display:block;
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
+    margin-top: 10px;
+    background-color: grey;
+    font-size:20px;
+    border: 3px solid orange;
+    border-radius: 7px ;    
   }
-  
-
-  
-  .question-list input[type="radio"]:checked ~ label {
-      background-color: orange;
-      color: black;
-  }
-
-.question-list label {
-    background: grey;
-    color: black;
-     padding:5px;
-     border:1px solid #CCC; 
-     cursor:pointer;
-    z-index:90;
+  .radio-buttons [type="checkbox"] + span {
+    display:inline-block;
+    padding:1em;
 }
-
-.question-list label:hover {
-     background: white;
+ .radio-buttons :checked + span {
+    background-color:orange;
+}
+.next-button{
+  margin-top: 15px;
+}
+.submit-button{
+  margin-top: 15px;
 }
    
 </style>
