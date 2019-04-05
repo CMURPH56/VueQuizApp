@@ -51,18 +51,21 @@
   .radio-buttons label {
     display:block;
     margin-top: 10px;
-    background-color: grey;
+    background-color: white;
     font-size:20px;
-    border: 3px solid orange;
-    border-radius: 7px ;    
+    border: 3px solid black;
+    border-radius: 7px ;   
+    padding:3px; 
   }
-  .radio-buttons [type="checkbox"] + span {
-    display:inline-block;
-    padding:1em;
-}
+  
+
  .radio-buttons :checked + span {
     background-color:orange;
 }
+.radio-buttons :hover {
+  background-color: grey;
+}
+
 .next-button{
   margin-top: 15px;
 }
