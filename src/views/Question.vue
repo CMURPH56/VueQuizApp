@@ -13,16 +13,16 @@
             <input type="radio" :value="answer.option" name="answer.Answer" v-model="selectedAnswer">
             <span>   {{answer.Answer}} </span>
           </label>
-        </div>
-    <div v-if="QuestionNumber != 5">
+       
+    <div v-if="QuestionNumber != 5" class="next-button">
       <button v-on:click="clicked">Next Question</button>
     </div>
-    <div v-if="QuestionNumber == 5">
+    <div v-if="QuestionNumber == 5" class= "submit-button">
           <form action= "/Results" >
             <input v-on:click="finalSubmission" type="submit" value="Submit Results" />
           </form>
       </div>
-
+ </div>
   </div>
 </template>
 
@@ -39,17 +39,22 @@
     background-color: black;
     color: orange;
   }
+  .radio-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
   .radio-buttons input[type="radio"] {
     display:none; 
   }
   .radio-buttons label {
-    display:inline-block;
-    background-color:#ddd;
-
-    font-family:Arial;
-    font-size:16px;
-    border: 2px solid #444;
-    border-radius: 4px;    
+    display:block;
+    margin-top: 10px;
+    background-color: grey;
+    font-size:20px;
+    border: 3px solid orange;
+    border-radius: 7px ;    
   }
   .radio-buttons [type="checkbox"] + span {
     display:inline-block;
@@ -57,6 +62,12 @@
 }
  .radio-buttons :checked + span {
     background-color:orange;
+}
+.next-button{
+  margin-top: 15px;
+}
+.submit-button{
+  margin-top: 15px;
 }
    
 </style>
