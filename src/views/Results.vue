@@ -4,8 +4,11 @@
 
     <div>
         Most Popular Answers
-        
-
+        <ul>
+            <li v-for="response in Responses">
+                {{response.Name}}  {{response.Count}}  
+            </li>
+        </ul>
 
     </div>
     
@@ -21,4 +24,24 @@
 
 </style>
 <script>
+  import {db} from '../../firebaseConfig'
+export default{
+    data(){
+      return {
+       Responses: [],
+      };
+    },
+    created(){
+      db.collection('Responses').get().then((querySnapshot) =>{
+        this.loading= false
+        querySnapshot.forEach((doc) =>{
+          let data ={
+            'Count' : doc.data().Count,
+            'Name' : doc.data().Name,
+          }
+          this.Responses.push(data)
+        })
+      })
+    }
+}
 </script>

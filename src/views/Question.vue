@@ -83,7 +83,6 @@
       };
     },
     created(){
-      console.log("test")
       db.collection('Questions').get().then((querySnapshot) =>{
         this.loading= false
         querySnapshot.forEach((doc) =>{
