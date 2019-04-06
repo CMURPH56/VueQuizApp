@@ -16,9 +16,7 @@
       <button v-on:click="clicked">Next Question</button>
     </div>
     <div v-if="QuestionNumber == 9" class= "submit-button">
-         
-             <input v-on:click="finalSubmission" type="submit" value="Submit Results" />
-           
+        <input v-on:click="finalSubmission" type="submit" value="Submit Results" />
       </div>
  </div>
   </div>
@@ -108,7 +106,6 @@
       finalSubmission:function(event){
         var modeMap = {};
         var maxChar = this.selectedAnswers[0], maxCount = 1;
-   
         for( var i = 0 ;  i < this.selectedAnswers.length ; i++){ 
           var el = this.selectedAnswers[i];
           if(modeMap[el] == null){
@@ -134,18 +131,19 @@
         
         var monsterArray  = monster.split(" ");
         monster = monsterArray[0];      
-        const collection = db.collection('Responses').add({
-          monster
+        var answerCollection = db.collection('Responses').doc(monster);
+        return db.runTransaction(function(transaction){
+          return transaction.get(answerCollection).then(function(monsterAnswer){
+            var newAmount = monsterAnswer.data().Count + 1;
+            transaction.update(answerCollection, {Count : newAmount});
+          })
         }).then( ref => {
-          console.log("Added document with id:" + ref.id);
+          console.log("Count incremented");
           this.$store.commit('setAnswer', monster);
           window.location.href = "/results";
         });
-      
-     
       }
     },
-      
   }
 </script>
 

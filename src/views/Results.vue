@@ -1,6 +1,14 @@
 <template>
     <div class= "result">
         <h1> Thanks for playing!  </h1>
+
+    <div>
+        Most Popular Answers
+        
+
+
+    </div>
+    
     </div>
 </template>
 
