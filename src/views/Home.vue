@@ -44,6 +44,7 @@
 
   
   body{
+     cursor: url(''), auto;
     background-color:black;
   }
 

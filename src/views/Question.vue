@@ -8,17 +8,17 @@
       {{testQuestions[QuestionNumber-1].Question}} 
     </div>
         <div class= "radio-buttons">
-          <label v-for="answer in testQuestions[QuestionNumber-1].answers" class="button-label"  >
-            <input type="radio" :value="answer.option" name="answer.Answer" v-model="selectedAnswer">
+          <label v-for="answer in testQuestions[QuestionNumber-1].answers" class="button-label"   >
+            <input type="radio" :value="answer.option"  name="answer.Answer" v-model="selectedAnswer">
             <span>   {{answer.Answer}} </span>
           </label>
     <div v-if="QuestionNumber != 9" class="next-button">
       <button v-on:click="clicked">Next Question</button>
     </div>
     <div v-if="QuestionNumber == 9" class= "submit-button">
-          <form action= "/Results" >
-            <input v-on:click="finalSubmission" type="submit" value="Submit Results" />
-          </form>
+         
+             <input v-on:click="finalSubmission" type="submit" value="Submit Results" />
+           
       </div>
  </div>
   </div>
@@ -27,6 +27,7 @@
 <style>
 
   body {
+    cursor: url("../assets/logo.png"), auto;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cat.jpg");
   }
   .question-title{
@@ -55,22 +56,18 @@
     border-radius: 7px ;   
     padding:3px; 
   }
-  
-
  .radio-buttons :checked + span {
     background-color:orange;
-}
-.radio-buttons :hover {
+ }
+ .radio-buttons :hover {
   background-color: grey;
-}
-
+ }
 .next-button{
   margin-top: 15px;
-}
-.submit-button{
+ }
+ .submit-button{
   margin-top: 15px;
-}
-   
+ }
 </style>
 
 <script>
@@ -135,8 +132,15 @@
         if(maxChar == "D")
           monster = "Dracula \nPeople who get Dracula are intelligent, reserved, and will do anything to get ahead"
         
-        this.$store.commit('setAnswer', monster)
-        alert(this.$store.state.answer)
+        var monsterArray  = monster.split(" ");
+        monster = monsterArray[0];      
+        const collection = db.collection('Responses').add({
+          monster
+        }).then( ref => {
+          console.log("Added document with id:" + ref.id)
+        });
+        this.$store.commit('setAnswer', monster);
+        window.location.href = "/results";
       }
     },
       
