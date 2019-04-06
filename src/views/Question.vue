@@ -129,6 +129,7 @@
         if(maxChar == "D")
           monster = "Dracula \nPeople who get Dracula are intelligent, reserved, and will do anything to get ahead"
         
+        alert(monster)
         var monsterArray  = monster.split(" ");
         monster = monsterArray[0];      
         var answerCollection = db.collection('Responses').doc(monster);
