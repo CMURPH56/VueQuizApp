@@ -137,10 +137,12 @@
         const collection = db.collection('Responses').add({
           monster
         }).then( ref => {
-          console.log("Added document with id:" + ref.id)
+          console.log("Added document with id:" + ref.id);
+          this.$store.commit('setAnswer', monster);
+          window.location.href = "/results";
         });
-        this.$store.commit('setAnswer', monster);
-        window.location.href = "/results";
+      
+     
       }
     },
       
