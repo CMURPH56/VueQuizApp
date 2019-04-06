@@ -1,5 +1,4 @@
 <template>
-
   <div class="question">
     <!-- Header -->
     <div class=header>
@@ -13,11 +12,10 @@
             <input type="radio" :value="answer.option" name="answer.Answer" v-model="selectedAnswer">
             <span>   {{answer.Answer}} </span>
           </label>
-       
-    <div v-if="QuestionNumber != 5" class="next-button">
+    <div v-if="QuestionNumber != 9" class="next-button">
       <button v-on:click="clicked">Next Question</button>
     </div>
-    <div v-if="QuestionNumber == 5" class= "submit-button">
+    <div v-if="QuestionNumber == 9" class= "submit-button">
           <form action= "/Results" >
             <input v-on:click="finalSubmission" type="submit" value="Submit Results" />
           </form>
