@@ -40,7 +40,7 @@
   stroke-width: 32px;
   transition: stroke-dasharray 0.3s ease-in-out, stroke-dash-offset 0.3s ease-in-out;
 }
-$colors: red, yellow, cyan, blue, green,black, white, grey, purple;
+$colors: red, yellow, cyan, green,black, white, grey, purple;
 @for $i from 1 through length($colors){
   .pie circle:nth-child(#{$i}){
     stroke: nth($colors, $i);
@@ -59,7 +59,7 @@ $colors: red, yellow, cyan, blue, green,black, white, grey, purple;
     data(){
       return {
        Responses: [],
-       data: [10,20,40,50],
+       data: [30,20,40,50],
        circleLength: 371.9451599,
        hasMounted: false,
       };
