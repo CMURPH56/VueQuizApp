@@ -16,7 +16,13 @@
       <button v-on:click="clicked">Next Question</button>
     </div>
     <div v-if="QuestionNumber == 9" class= "submit-button">
-        <input v-on:click="finalSubmission" type="submit" value="Submit Results" />
+      <router-link
+        tag="button"
+        to="/Results"
+          @click.native="finalSubmission"
+      > Final Submission
+      </router-link>
+
       </div>
  </div>
   </div>
@@ -140,7 +146,7 @@
         }).then( ref => {
           console.log("Count incremented");
           this.$store.commit('setAnswer', monster);
-          window.location.href = "/results";
+         
         });
       }
     },

@@ -7,9 +7,8 @@
           <h1> Welcome to Cam's Horror Quiz</h1>
         </div>
         <div >
-          <form action= "/Question" >
-            <input class="button" type="submit" value="Get Started" />
-          </form>
+           <router-link to="/Question" class="button" tag="button">Get Started</router-link>
+
         </div>
     </div>
   </div>
@@ -29,7 +28,7 @@
     props: {
     },
     created(){
-      console.log("test")
+     
     }
 }
 </script>

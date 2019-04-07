@@ -4,7 +4,7 @@
 
     <div>
         Most Popular Answers
-        <ul>
+        <ul class="response-results">
             <li v-for="response in Responses">
                 {{response.Name}}  {{response.Count}}  
             </li>
@@ -19,7 +19,10 @@
 .result{
     margin-top: 10%;
     color: white;
-       text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
+    text-shadow: -1px 0 red, 0 1px red, 1px 0 red, 0 -1px red;
+}
+.response-results{
+  list-style-type: none;
 }
 
 </style>
