@@ -48,7 +48,7 @@
   }
 
   .button{
-    margin-top: 250px;
+    margin-top: 15vh;
     padding: 20px 50px;
     background-color:white;
     color: black;
