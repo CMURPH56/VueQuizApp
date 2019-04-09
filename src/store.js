@@ -9,7 +9,7 @@ var QuestionsRef = db.collection("Questions")
 
 export default new Vuex.Store({
   state: {
-    answer: 'test',
+    answer: '',
   },
  // modules: { questionsTest },
   mutations: {
