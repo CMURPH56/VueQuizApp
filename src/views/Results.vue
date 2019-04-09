@@ -1,9 +1,9 @@
 <template>
     <div class= "result">
-        <h1> Thanks for playing!  </h1>
-
+        <h1>  You got {{answer}} !!! </h1>
     <div>
         Most Popular Answers
+        
         <ul class="response-results">
             <li v-for="response in Responses">
                 {{response.Name}}  {{response.Count}}  
@@ -27,13 +27,20 @@
 
 </style>
 <script>
-  import {db} from '../../firebaseConfig'
+import {db} from '../../firebaseConfig'
+import {store} from'../store.js';
 export default{
-    data(){
+  data(){
       return {
        Responses: [],
       };
     },
+    computed: {
+      answer() {
+        return this.$store.state.answer;
+      }
+    },
+
     created(){
       db.collection('Responses').get().then((querySnapshot) =>{
         this.loading= false
