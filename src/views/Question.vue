@@ -32,7 +32,9 @@
 
   body {
     cursor: url("../assets/logo.png"), auto;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cat.jpg");
+    background-image:  url("../assets/cat.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
   }
   .question-title{
     color: orange;
