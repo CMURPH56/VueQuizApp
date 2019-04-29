@@ -1,40 +1,24 @@
 <template>
   <div class="question">
     <!-- Header -->
-    <div class=header>
-      <h1> Question Number {{QuestionNumber}} </h1>
-   </div>
-    <div class="question-title"> 
-      {{testQuestions[QuestionNumber-1].Question}} 
-    </div>
         <div class= "radio-buttons">
-          <label v-for="answer in testQuestions[QuestionNumber-1].answers" class="button-label"   >
+          <ul v-for="question in testQuestions">
+            <li> {{question.Question}} </li>
+          <label v-for="answer in question.answers" class="button-label">
             <input type="radio" :value="answer.option"  name="answer.Answer" v-model="selectedAnswer">
             <span>   {{answer.Answer}} </span>
           </label>
-    <div v-if="QuestionNumber != 9" class="next-button">
-      <button v-on:click="clicked">Next Question</button>
-    </div>
-    <div v-if="QuestionNumber == 9" class= "submit-button">
-      <router-link
-        tag="button"
-        to="/Results"
-          @click.native="finalSubmission"
-      > Final Submission
-      </router-link>
-
-      </div>
- </div>
-  </div>
+          </ul>
+        </div>
+  
+     </div>
 </template>
 
 <style>
 
   body {
     cursor: url("../assets/logo.png"), auto;
-    background-image:  url("../assets/cat.jpg");
-    background-repeat: no-repeat;
-    background-position: right top;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cat.jpg");
   }
   .question-title{
     color: orange;
@@ -88,7 +72,7 @@
         selectedAnswer: "",
         selectedAnswers: [],
         testQuestions: []        
-      };
+      };  
     },
     created(){
       db.collection('Questions').get().then((querySnapshot) =>{
