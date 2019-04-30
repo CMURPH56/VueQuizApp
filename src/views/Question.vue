@@ -3,9 +3,9 @@
     <!-- Header -->
         <div class= "radio-buttons">
           <ul v-for="question in testQuestions">
-            <li> {{question.Question}} </li>
+            <li class="question-list"> {{question.Question}} </li>
           <label v-for="answer in question.answers" class="button-label">
-            <input type="radio" :value="answer.option"  name="answer.Answer" v-model="selectedAnswer">
+            <input type="radio" :value="answer.option"  name="answer.Answer" v-model="selectedAnswers">
             <span>   {{answer.Answer}} </span>
           </label>
           </ul>
@@ -23,6 +23,10 @@
   .question-title{
     color: orange;
     font-size: 20px;
+  }
+  .question-list {
+    color: white;
+    list-style-type: none;
   }
   .header{
     background-color: black;
@@ -90,8 +94,9 @@
     
     methods:{
       clicked:function(event){
-        this.QuestionNumber = this.QuestionNumber + 1;
-        this.selectedAnswers.push(this.selectedAnswer);
+     
+        this.selectedAnswers = selectedAnswers;
+        console.log("selected answers")
        
       },
       finalSubmission:function(event){
