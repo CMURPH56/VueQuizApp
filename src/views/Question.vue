@@ -1,16 +1,23 @@
 <template>
   <div class="question">
     <!-- Header -->
-        <div class= "radio-buttons">
+       
           <ul v-for="question in testQuestions">
             <li class="question-list"> {{question.Question}} </li>
+             <div class= "radio-buttons">
           <label v-for="answer in question.answers" class="button-label">
             <input type="radio" :value="answer.option"  name="answer.Answer" v-model="selectedAnswers">
             <span>   {{answer.Answer}} </span>
           </label>
+                </div>
           </ul>
-        </div>
   
+            <router-link
+        tag="button"
+        to="/Results"
+          @click.native="finalSubmission"
+      > Final Submission
+      </router-link>
      </div>
 </template>
 
