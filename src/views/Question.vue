@@ -1,14 +1,14 @@
 <template>
   <div class="question">
     <h1> Questions </h1>
-    <ul v-for="question in testQuestions">
+    <ul v-for="question in testQuestions" v-bind:id="question.Question">
       <li class="question-list"> {{question.Question}} </li>
-        <div class= "radio-buttons">
-          <label v-for="answer in question.answers" class="button-label">
-            <input type="radio" :value="answer.option"  name="answer.Answer" v-model="selectedAnswers">
+        <form class= "radio-buttons">
+          <label v-for="answer in question.answers"  class="button-label">
+            <input type="radio" :value="answer.Answer"  name="answer.Answer" v-model="selectedAnswers">
             <span>{{answer.Answer}}</span>
           </label>
-        </div>
+        </form>
       </ul>
       <h1> {{selectedAnswers}} </h1>
       <router-link tag="button" to="/Results" @click.native="finalSubmission"> 
@@ -25,6 +25,7 @@
     data(){
       return {
         QuestionNumber: 1,
+        selectedAnswer: '',
         selectedAnswers: [],
         testQuestions: []        
       };  
