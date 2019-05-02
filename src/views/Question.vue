@@ -1,76 +1,21 @@
 <template>
   <div class="question">
-    <!-- Header -->
-       
-          <ul v-for="question in testQuestions">
-            <li class="question-list"> {{question.Question}} </li>
-             <div class= "radio-buttons">
+    <h1> Questions </h1>
+    <ul v-for="question in testQuestions">
+      <li class="question-list"> {{question.Question}} </li>
+        <div class= "radio-buttons">
           <label v-for="answer in question.answers" class="button-label">
             <input type="radio" :value="answer.option"  name="answer.Answer" v-model="selectedAnswers">
-            <span>   {{answer.Answer}} </span>
+            <span>{{answer.Answer}}</span>
           </label>
-                </div>
-          </ul>
-  
-            <router-link
-        tag="button"
-        to="/Results"
-          @click.native="finalSubmission"
-      > Final Submission
+        </div>
+      </ul>
+      <h1> {{selectedAnswers}} </h1>
+      <router-link tag="button" to="/Results" @click.native="finalSubmission"> 
+      Final Submission
       </router-link>
-     </div>
+  </div>
 </template>
-
-<style>
-
-  body {
-    cursor: url("../assets/logo.png"), auto;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cat.jpg");
-  }
-  .question-title{
-    color: orange;
-    font-size: 20px;
-  }
-  .question-list {
-    color: white;
-    list-style-type: none;
-  }
-  .header{
-    background-color: black;
-    color: orange;
-  }
-  .radio-buttons{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-  }
-  .radio-buttons input[type="radio"] {
-    display:none; 
-  }
-  .radio-buttons label {
-    display:block;
-    margin-top: 10px;
-    background-color: white;
-    font-size:20px;
-    border: 3px solid black;
-    border-radius: 7px ;   
-    padding:3px; 
-  }
- .radio-buttons :checked + span {
-    background-color:orange;
- }
- .radio-buttons :hover {
-  background-color: grey;
- }
-.next-button{
-  margin-top: 15px;
- }
- .submit-button{
-  margin-top: 15px;
- }
-</style>
-
 <script>
   import {store} from  '../store'
   import { isUndefined } from 'util';
@@ -80,7 +25,6 @@
     data(){
       return {
         QuestionNumber: 1,
-        selectedAnswer: "",
         selectedAnswers: [],
         testQuestions: []        
       };  
@@ -150,4 +94,55 @@
     },
   }
 </script>
+
+
+<style>
+
+  body {
+    cursor: url("../assets/logo.png"), auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../assets/cat.jpg");
+  }
+  .question-title{
+    color: orange;
+    font-size: 20px;
+  }
+  .question-list {
+    color: white;
+    list-style-type: none;
+  }
+  .header{
+    background-color: black;
+    color: orange;
+  }
+  .radio-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .radio-buttons input[type="radio"] {
+    display:none; 
+  }
+  .radio-buttons label {
+    display:block;
+    margin-top: 10px;
+    background-color: white;
+    font-size:20px;
+    border: 3px solid black;
+    border-radius: 7px ;   
+    padding:3px; 
+  }
+ .radio-buttons :checked + span {
+    background-color:orange;
+ }
+ .radio-buttons :hover {
+  background-color: grey;
+ }
+.next-button{
+  margin-top: 15px;
+ }
+ .submit-button{
+  margin-top: 15px;
+ }
+</style>
 
