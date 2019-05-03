@@ -1,11 +1,11 @@
 <template>
   <div class="question">
     <h1> Questions </h1>
-    <ul v-for="question in testQuestions" v-bind:id="question.Question">
-      <li class="question-list"> {{question.Question}} </li>
+    <ul  style="padding-bottom:20px;" v-for="question in testQuestions" v-bind="question.Question">
+      <li class="question-list"> <h3>{{question.Question}}</h3> </li>
         <form class= "radio-buttons">
           <label v-for="answer in question.answers"  class="button-label">
-            <input type="radio" :value="answer.Answer"  name="answer.Answer" v-model="selectedAnswers">
+            <input type="radio" :value="answer.Answer"  name="answer.Answer">
             <span>{{answer.Answer}}</span>
           </label>
         </form>
