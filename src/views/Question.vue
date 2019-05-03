@@ -1,7 +1,7 @@
 <template>
   <div class="question">
     <h1> Questions </h1>
-    <ul  style="padding-bottom:20px;" v-for="question in testQuestions" v-bind="question.Question">
+    <ul  style=" height:75vh;" v-for="question in testQuestions" v-bind="question.Question">
       <li class="question-list"> <h3>{{question.Question}}</h3> </li>
         <form class= "radio-buttons">
           <label v-for="answer in question.answers"  class="button-label">
